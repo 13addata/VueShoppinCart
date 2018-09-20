@@ -1,0 +1,126 @@
+.clearfloat {
+    zoom: 1;
+}
+
+.clearfloat:after {
+    display: block;
+    content: "";
+    visibility: hidden;
+    height: 1px;
+    clear: both;
+}
+
+header {
+    margin: 0;
+    background: url('../img/vue-optimized.png') no-repeat 0px -30px;
+    background-size: cover;
+}
+
+header .header-info {
+    padding: 56px 0;
+}
+
+header .header-info #vueid {
+    display: block;
+    font-size: 18px;
+    color: #01AE79;
+}
+
+.banner {
+    position: relative;
+    border-top: 4px solid #01AE79;
+}
+
+.banner .banner-flag {
+    position: relative;
+    margin: 0 auto;
+    left: -20px;
+    width: 132px;
+    height: 60px;
+    color: #eee;
+    font-size: 22px;
+    letter-spacing: 6px;
+    line-height: 50px;
+    background: #01AE79;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.banner .banner-flag:after {
+    position: absolute;
+    content: '';
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 66px solid transparent;
+    border-right: 66px solid transparent;
+    border-bottom: 12px solid #fff;
+}
+
+.left {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+
+.right {
+    display: block;
+    margin-left: 120px;
+    height: 100px;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.number {
+    width: 40px;
+}
+
+.pro-num {
+    position: relative;
+    left: -30px;
+    width: 150px;
+}
+
+.table .fa {
+    width: 30px;
+}
+
+.table .fa-check-square {
+    color: #2a8;
+}
+
+.btn-delete {
+    color: #fbb;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-delete:hover {
+    color: #fff;
+}
+
+.btn-del-all {
+    float: left;
+}
+
+.total-info {
+    float: right;
+}
+
+.total-info .submit-btn {
+    margin:-16px 30px 0px 30px;
+    padding: 12px 30px;
+    float: right;
+    border: 0;
+    background: #2a8;
+    color: #eee;
+    font-size: 20px;
+    letter-spacing: 5px;
+}
+
+#select-all {
+    position: absolute;
+    margin-left: 10px;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/FontAwesome.css">
+</head> 
+<body class="container clearfloat">
+    <header>
+        <div class="header-info">
+        <h1>Shopping Cart Demo <span id="vueid">Made With Vue.js</span></h1>
+        </div>
+    </header>
+
+    <div class="banner">
+        <div class="banner-flag">VUE</div>
+    </div>
+
+    <div id="app">
+        <table class="table" >
+
+                <tr>
+                    <td><span id="select-all">&nbsp 全选</span>
+                    <span v-if="isSelectAll==false" @click="selectAll(),select=!select" class="fa fa-square-o"></span>
+                    <span v-else="isSelectAll==true" @click="selectNone(),select=!select" class="fa fa-check-square"></span>
+                    </td>
+                    <td>商品</td>
+                    <td>数量</td>
+                    <td>单价(元)</td>
+                    <td>金额(元)</td>
+                    <td>操作</td>
+                </tr>
+
+                <tr v-for="goods in goodsList">
+                    <td>
+                        <span v-if="goods.select==false"  @click="goods.select=!goods.select" class="fa fa-square-o"></span>
+                        <span v-else="goods.selesct==true"  @click="goods.select=!goods.select" class="fa fa-check-square"></span>
+                    </td>
+                    <td>
+                        <div class="left"><img :src="goods.item_img" style="width: 100px;height: 100%;"></div>
+                        <div class="right">
+                            <h5>{{goods.name}}</h5>
+                            <p>品牌：{{goods.brand}}  产地:{{goods.location}}</p>
+                             <p>额定容量:{{goods.size}}  最大电流:{{goods.current}}</p>
+                            <p>重量:{{goods.weight}}</p>
+                        </div>
+                    </td>
+
+                    <td class="pro-num">
+                        <a class="btn fa fa-minus-square-o" @click.stop="goods.num>0?goods.num--:0"></a>
+                        <!-- 
+                        @click.stop="item.pro_num>0?item.pro_num--:0" 
+                        ##避免出现负数##
+                        -->
+                        <input type="text" class="number" v-model="goods.num" style="text-align: center;"></input>
+                        <a class="btn fa fa-plus-square-o" @click="goods.num++"></a>
+                    </td>
+
+                    <td>${{goods.price}}</td>
+                    <td>${{goods.num*goods.price}}</td>
+                    <td><input type="button" value="删除" class="btn btn-delete" @click="deleteOne(index)"></input></td>
+                </tr>
+        </table>
+
+        <p class="btn-del-all"><input type="button" value="删除选中商品" class="btn btn-delete" @click="deleteGoods()"></input></p>
+        <div class="total-info clearfloat">
+            <p>您挑选了{{getTotal.totalNum}}商品，共计{{getTotal.totalPrice}}元
+                <span><input class="btn submit-btn" type="button" value="结算"></span></p>
+        </div>
+    </div>
+<script src="assets/js/vue.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
